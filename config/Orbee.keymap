@@ -66,8 +66,8 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R        &kp T                                      &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F        &kp G        &trans         &kp EQUAL      &kp H        &kp J  &kp K      &kp L    &lt 6 MINUS
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V        &kp B        &lt 4 TAB      &kp COLON      &kp N        &kp M  &kp COMMA  &kp DOT  &kp RS(SLASH)
+&kp A             &kp S         &kp D         &lt 6 F      &kp G        &trans         &kp EQUAL      &kp H        &kp J  &kp K      &kp L    &lt 6 MINUS
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V        &kp B        &lt 4 TAB      &kp EXCL       &kp N        &kp M  &kp COMMA  &kp DOT  &kp RS(SLASH)
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANG1  &lt 2 SPACE  &lt 3 LANG2    &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
             >;
 
@@ -76,7 +76,7 @@
 
         layer_1 {
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5                     &kp ASTERISK  &kp N7  &kp N8  &kp N9  &kp F5
+&kp F1   &kp F2   &kp F3  &kp F4  &kp F5                     &kp ASTERISK  &kp N7  &kp N8  &kp N9  &kp PLUS
 &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &trans    &trans  &kp FSLH      &kp N4  &kp N5  &kp N6  &kp MINUS
 &kp F11  &kp F12  &trans  &trans  &trans   &trans    &trans  &kp N0        &kp N1  &kp N2  &kp N3  &kp DOT
 &kp ESC  &trans   &trans  &trans  &trans   &trans    &trans  &trans                                &kp EQUAL
@@ -98,10 +98,10 @@
 
         layer_3 {
             bindings = <
-&trans     &trans        &trans  &trans  &trans                    &trans  &kp HOME   &kp UP           &kp END    &trans
-&trans     &trans        &trans  &trans  &trans  &trans    &trans  &trans  &kp LEFT   &kp DOWN         &kp RIGHT  &trans
-&kp LSHFT  &trans        &trans  &trans  &trans  &trans    &trans  &trans  &kp PG_UP  &kp PRINTSCREEN  &kp PG_DN  &trans
-&kp LCTRL  &kp LEFT_WIN  &trans  &trans  &trans  &trans    &trans  &trans                                         &trans
+&trans     &trans        &trans        &trans  &trans                    &trans  &kp HOME   &kp UP           &kp END    &trans
+&trans     &trans        &trans        &trans  &trans  &trans    &trans  &trans  &kp LEFT   &kp DOWN         &kp RIGHT  &trans
+&kp LSHFT  &trans        &trans        &trans  &trans  &trans    &trans  &trans  &kp PG_UP  &kp PRINTSCREEN  &kp PG_DN  &trans
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans  &trans    &trans  &trans                                         &trans
             >;
         };
 
@@ -129,10 +129,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                &trans
+&trans  &trans          &trans          &trans  &trans                    &trans  &mkp MB4  &mkp MB5  &trans    &trans
+&trans  &msc MOVE_X(0)  &msc MOVE_Y(0)  &trans  &trans  &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
+&trans  &trans          &trans          &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans          &trans          &trans  &trans  &trans    &trans  &trans                                &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
