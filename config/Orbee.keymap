@@ -87,10 +87,10 @@
 
         layer_2 {
             bindings = <
-&kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                         &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE         &trans
-&kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))    &trans  &trans  &kp DOLLAR            &kp PERCENT            &kp SINGLE_QUOTE  &trans
-&mt LEFT_SHIFT KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                  &trans  &trans  &kp EXCLAMATION       &kp DOUBLE_QUOTES      &kp HASH          &trans
-&trans                      &trans           &trans           &trans           &trans        &trans                     &trans  &trans                                                                 &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE         &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp DOLLAR            &kp PERCENT            &kp SINGLE_QUOTE  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp EXCLAMATION       &kp DOUBLE_QUOTES      &kp HASH          &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                                                 &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
