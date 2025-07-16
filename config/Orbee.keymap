@@ -77,7 +77,7 @@
         layer_1 {
             bindings = <
 &kp EXCL        &kp DOUBLE_QUOTES  &kp HASH      &kp DOLLAR  &kp PERCENT                              &kp AMPERSAND  &kp APOSTROPHE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp CARET
-&trans          &trans             &trans        &trans      &trans       &trans       &kp INT_YEN    &kp GRAVE      &kp AT_SIGN     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON
+&trans          &trans             &trans        &trans      &trans       &trans       &trans         &kp GRAVE      &kp AT_SIGN     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON
 &kp LEFT_SHIFT  &trans             &trans        &trans      &trans       &kp TAB      &kp ESCAPE     &kp SLASH      &kp BACKSLASH   &kp LESS_THAN         &kp GREATER_THAN       &mt RIGHT_SHIFT SEMICOLON
 &kp LCTRL       &kp LEFT_WIN       &kp LEFT_ALT  &kp LANG1   &kp SPACE    &kp LANG2    &kp BACKSPACE  &kp ENTER                                                                   &mt RCTRL DELETE
             >;
