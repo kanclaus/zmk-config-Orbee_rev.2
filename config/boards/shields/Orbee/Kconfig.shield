@@ -3,3 +3,12 @@ config SHIELD_ORBEE_R
 
 config SHIELD_ORBEE_L
     def_bool $(shields_list_contains,Orbee_L)
+
+# --- バッテリー電圧範囲 ---
+config ZMK_BATTERY_VOLTAGE_MIN
+    int "Minimum battery voltage"
+    default 3300
+
+config ZMK_BATTERY_VOLTAGE_MAX
+    int "Maximum battery voltage"
+    default 4200
