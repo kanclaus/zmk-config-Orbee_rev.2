@@ -8,7 +8,11 @@ config SHIELD_ORBEE_L
 config ZMK_BATTERY_VOLTAGE_MIN
     int "Minimum battery voltage"
     default 3300
+    help
+      Minimum voltage (mV) for the battery. Used for reporting battery percentage.
 
 config ZMK_BATTERY_VOLTAGE_MAX
     int "Maximum battery voltage"
     default 4200
+    help
+      Maximum voltage (mV) for the battery. Used for reporting battery percentage.
