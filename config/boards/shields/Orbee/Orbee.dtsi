@@ -22,12 +22,12 @@
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
         diode-direction = "col2row";
-            row-gpios
-                = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
-                , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
-                , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
-                , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 			
-                ;
+        row-gpios
+            = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
+            , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
+            , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
+            , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 			
+            ;
     };
 
     left_encoder0: encoder_left0 {
@@ -53,9 +53,10 @@
         sensors = <&left_encoder0 &right_encoder>;
         triggers-per-rotation = <12>;
     };
-};
+
     zephyr,battery {
         compatible = "zmk,battery";
         io-channels = <&adc 7>;  /* XIAO BLE の VBAT は ADC AIN7(P0.31) */
         status = "okay";
     };
+};
