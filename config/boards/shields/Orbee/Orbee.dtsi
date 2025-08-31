@@ -54,3 +54,8 @@
         triggers-per-rotation = <12>;
     };
 };
+    zephyr,battery {
+        compatible = "zmk,battery";
+        io-channels = <&adc 7>;  /* XIAO BLE の VBAT は ADC AIN7(P0.31) */
+        status = "okay";
+    };
