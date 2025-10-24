@@ -122,7 +122,7 @@
             bindings = <
 &trans  &kp LS(LG(LEFT))  &kp LG(UP)    &kp LS(LG(RIGHT))  &trans                    &trans  &kp LG(LC(LEFT))  &kp LG(TAB)  &kp LG(LC(RIGHT))  &trans
 &trans  &kp LG(LEFT)      &kp LG(DOWN)  &kp LG(RIGHT)      &trans  &trans    &trans  &trans  &kp LC(LS(TAB))   &kp LA(TAB)  &kp LC(TAB)        &trans
-&trans  &trans            &trans        &trans             &trans  &trans    &trans  &trans  &kp LS(PG_UP)     &kp LG(D)    &kp LS(PG_DN)      &trans
+&trans  &trans            &trans        &trans             &trans  &trans    &trans  &trans  &kp LC(PG_UP)     &kp LG(D)    &kp LC(PG_DN)      &trans
 &trans  &trans            &trans        &trans             &trans  &trans    &trans  &trans                                                    &trans
             >;
 
