@@ -87,10 +87,10 @@
 
         layer_2 {
             bindings = <
-&kp F1              &kp F2    &kp F3    &kp F4          &kp F5                                   &kp ASTERISK  &kp N7  &kp N8  &kp N9  &kp PLUS
-&kp F6              &kp F7    &kp F8    &kp F9          &kp F10    &trans            &trans      &kp FSLH      &kp N4  &kp N5  &kp N6  &kp MINUS
-&mt LEFT_SHIFT F11  &kp F12   &trans    &trans          &trans     &kp TAB           &kp ESCAPE  &kp N0        &kp N1  &kp N2  &kp N3  &mt RIGHT_SHIFT DOT
-&kp LCTRL           &kp LGUI  &kp LALT  &kp LANGUAGE_1  &kp SPACE  &kp LANGUAGE_2    &kp BSPC    &kp ENTER                             &mt RCTRL EQUAL
+&kp F1              &kp F2    &kp F3    &kp F4          &kp F5                                    &kp ASTERISK  &kp N7  &kp N8  &kp N9  &kp PLUS
+&kp F6              &kp F7    &kp F8    &kp F9          &kp F10     &trans            &trans      &kp FSLH      &kp N4  &kp N5  &kp N6  &kp MINUS
+&mt LEFT_SHIFT F11  &kp F12   &trans    &trans          &kp LA(F4)  &kp TAB           &kp ESCAPE  &kp N0        &kp N1  &kp N2  &kp N3  &mt RIGHT_SHIFT DOT
+&kp LCTRL           &kp LGUI  &kp LALT  &kp LANGUAGE_1  &kp SPACE   &kp LANGUAGE_2    &kp BSPC    &kp ENTER                             &mt RCTRL EQUAL
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -120,8 +120,8 @@
 
         layer_5 {
             bindings = <
-&trans  &kp LS(LG(LEFT))  &kp LG(UP)    &kp LS(LG(RIGHT))  &trans                    &trans  &kp LC(LS(TAB))   &kp LA(TAB)  &kp LC(TAB)        &trans
-&trans  &kp LG(LEFT)      &kp LG(DOWN)  &kp LG(RIGHT)      &trans  &trans    &trans  &trans  &kp LG(LC(LEFT))  &kp LG(TAB)  &kp LC(LG(RIGHT))  &trans
+&trans  &kp LS(LG(LEFT))  &kp LG(UP)    &kp LS(LG(RIGHT))  &trans                    &trans  &kp LG(LC(LEFT))  &kp LG(TAB)  &kp LG(LC(RIGHT))  &trans
+&trans  &kp LG(LEFT)      &kp LG(DOWN)  &kp LG(RIGHT)      &trans  &trans    &trans  &trans  &kp LC(LS(TAB))   &kp LA(TAB)  &kp LC(TAB)        &trans
 &trans  &trans            &trans        &trans             &trans  &trans    &trans  &trans  &kp LS(PG_UP)     &kp LG(D)    &kp LS(PG_DN)      &trans
 &trans  &trans            &trans        &trans             &trans  &trans    &trans  &trans                                                    &trans
             >;
@@ -131,7 +131,7 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB4  &mkp MB5  &trans    &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB4  &trans    &mkp MB5  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                &trans
