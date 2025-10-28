@@ -77,7 +77,7 @@
         layer_1 {
             bindings = <
 &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH      &kp DOLLAR      &kp PERCENT                                   &kp AMPERSAND  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp CARET
-&trans           &trans             &trans        &trans          &trans       &trans            &trans         &kp GRAVE      &kp AT_SIGN       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON
+&trans           &trans             &trans        &trans          &trans       &trans            &kp TILDE      &kp GRAVE      &kp AT_SIGN       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON
 &kp LEFT_SHIFT   &trans             &trans        &trans          &trans       &kp TAB           &kp ESCAPE     &kp SLASH      &kp BACKSLASH     &kp LESS_THAN         &kp GREATER_THAN       &kp SEMICOLON
 &kp LCTRL        &kp LEFT_WIN       &kp LEFT_ALT  &kp LANGUAGE_2  &kp SPACE    &kp LANGUAGE_1    &kp BACKSPACE  &kp ENTER                                                                     &mt RCTRL DELETE
             >;
@@ -89,7 +89,7 @@
             bindings = <
 &kp F1              &kp F2    &kp F3    &kp F4          &kp F5                                    &kp ASTERISK  &kp N7  &kp N8  &kp N9  &kp PLUS
 &kp F6              &kp F7    &kp F8    &kp F9          &kp F10     &trans            &trans      &kp FSLH      &kp N4  &kp N5  &kp N6  &kp MINUS
-&mt LEFT_SHIFT F11  &kp F12   &trans    &trans          &kp LA(F4)  &kp TAB           &kp ESCAPE  &kp N0        &kp N1  &kp N2  &kp N3  &mt RIGHT_SHIFT DOT
+&mt LEFT_SHIFT F11  &kp F12   &trans    &trans          &kp LA(F4)  &kp TAB           &kp ESCAPE  &kp DOT       &kp N1  &kp N2  &kp N3  &mt RIGHT_SHIFT N0
 &kp LCTRL           &kp LGUI  &kp LALT  &kp LANGUAGE_1  &kp SPACE   &kp LANGUAGE_2    &kp BSPC    &kp ENTER                             &mt RCTRL EQUAL
             >;
 
