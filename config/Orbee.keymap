@@ -60,6 +60,7 @@
         };
 
         // --- Cキー用：Alt長押し + Layer3 ---
+
         holdtap_alt_l3: holdtap_alt_l3 {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLDTAP_ALT_L3";
@@ -70,6 +71,7 @@
         };
 
         // --- Xキー用：Win長押し + Layer2 ---
+
         holdtap_win_l2: holdtap_win_l2 {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLDTAP_WIN_L2";
@@ -80,6 +82,7 @@
         };
 
         // --- Bキー用：Alt長押し + Tab短押し + Layer3 ---
+
         holdtap_alt_tab_l3: holdtap_alt_tab_l3 {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLDTAP_ALT_TAB_L3";
@@ -90,37 +93,30 @@
         };
 
         // --- Alt + Layer3 有効化 ---
+
         macro_press_alt_l3: macro_press_alt_l3 {
             compatible = "zmk,behavior-macro";
             label = "MACRO_ALT_L3";
             #binding-cells = <0>;
-            bindings = <
-                &kp LEFT_ALT
-                &mo 3
-            >;
+            bindings = <&kp LEFT_ALT &mo 3>;
         };
 
         // --- Win + Layer2 有効化 ---
+
         macro_press_win_l2: macro_press_win_l2 {
             compatible = "zmk,behavior-macro";
             label = "MACRO_WIN_L2";
             #binding-cells = <0>;
-            bindings = <
-                &kp LEFT_GUI
-                &mo 2
-            >;
+            bindings = <&kp LEFT_GUI &mo 2>;
         };
 
         // --- Alt + Tab + Layer3 有効化 ---
+
         macro_press_alt_tab_l3: macro_press_alt_tab_l3 {
             compatible = "zmk,behavior-macro";
             label = "MACRO_ALT_TAB_L3";
             #binding-cells = <0>;
-            bindings = <
-                &kp LEFT_ALT
-                &kp TAB
-                &mo 3
-            >;
+            bindings = <&kp LEFT_ALT &kp TAB &mo 3>;
         };
     };
 
@@ -129,10 +125,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R             &kp T                                             &kp Y      &kp U    &kp I      &kp O    &kp P
-&kp A             &kp S         &kp D         &lt 6 F           &lt 5 G      &trans              &kp EXCLAMATION  &kp H      &lt 5 J  &kp K      &kp L    &lt 6 MINUS
-&mt LEFT_SHIFT Z  &holdtap_win_l2 X  &holdtap_alt_l3 C  &kp V  &holdtap_alt_tab_l3 B  &lt 4 TAB           &kp ESCAPE       &kp N      &kp M    &kp COMMA  &kp DOT  &mt RIGHT_SHIFT QUESTION
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANGUAGE_1  &lt 2 SPACE  &lt 3 LANGUAGE_2    &kp BACKSPACE    &kp ENTER                               &mt RCTRL DELETE
+&kp Q             &kp W                &kp E                &kp R             &kp T                                                         &kp Y      &kp U    &kp I      &kp O    &kp P
+&kp A             &kp S                &kp D                &lt 6 F           &lt 5 G                  &trans              &kp EXCLAMATION  &kp H      &lt 5 J  &kp K      &kp L    &lt 6 MINUS
+&mt LEFT_SHIFT Z  &holdtap_win_l2 X X  &holdtap_alt_l3 C C  &kp V             &holdtap_alt_tab_l3 B B  &lt 4 TAB           &kp ESCAPE       &kp N      &kp M    &kp COMMA  &kp DOT  &mt RIGHT_SHIFT QUESTION
+&kp LCTRL         &kp LEFT_WIN         &kp LEFT_ALT         &lt 1 LANGUAGE_1  &lt 2 SPACE              &lt 3 LANGUAGE_2    &kp BACKSPACE    &kp ENTER                               &mt RCTRL DELETE
             >;
 
             sensor-bindings = <&scroll_up_down>;
