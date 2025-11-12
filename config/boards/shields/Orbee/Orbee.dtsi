@@ -22,12 +22,11 @@
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
         diode-direction = "col2row";
-        row-gpios = <
-            &xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-            &xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-            &xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-            &xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        >;
+        row-gpios = 
+            <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, 
+            <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, 
+            <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, 
+            <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 
     left_encoder0: encoder_left0 {
@@ -52,32 +51,5 @@
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder0 &right_encoder>;
         triggers-per-rotation = <12>;
-    };
-
-    /* --- ここからカスタム hold-tap ビヘイビアを追加 --- */
-    behaviors {
-        c_alt_layer3_hold: c_alt_layer3_hold {
-            compatible = "zmk,behavior-hold-tap";
-            label = "C_ALT_LAYER3";
-            #binding-cells = <2>;
-            bindings = <&kp C>, <&mo 3>;
-            tapping-term-ms = <200>;
-        };
-
-        x_win_layer2_hold: x_win_layer2_hold {
-            compatible = "zmk,behavior-hold-tap";
-            label = "X_WIN_LAYER2";
-            #binding-cells = <2>;
-            bindings = <&kp X>, <&mo 2>;
-            tapping-term-ms = <200>;
-        };
-
-        b_alt_tab_layer3_hold: b_alt_tab_layer3_hold {
-            compatible = "zmk,behavior-hold-tap";
-            label = "B_ALT_TAB_LAYER3";
-            #binding-cells = <2>;
-            bindings = <&kp B>, <&mo 3>;
-            tapping-term-ms = <200>;
-        };
     };
 };
