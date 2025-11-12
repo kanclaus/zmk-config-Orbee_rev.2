@@ -24,37 +24,36 @@
     };
 
     behaviors {
-        touch_behavior_1: touch1 {
-            compatible = "zmk,behavior-momentary";
-            label = "TouchKey1";
-            bindings = <&kp A>;
-        };
-
-        touch_behavior_2: touch2 {
-            compatible = "zmk,behavior-momentary";
-            label = "TouchKey2";
-            bindings = <&kp B>;
-        };
-
-        touch_behavior_3: touch3 {
-            compatible = "zmk,behavior-momentary";
-            label = "TouchKey3";
-            bindings = <&mo 1>;
-        };
-
-        lt_to_layer_0: lt_to_layer_0 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
-            bindings = <&mo>, <&to_layer_0>;
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
             tap-ms = <20>;
+        };
+
+        /* 新規追加 hold-tap ビヘイビア（長押しで修飾＋レイヤーON） */
+        c_alt_layer3_hold: c_alt_layer3_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "C_ALT_LAYER3";
+            #binding-cells = <2>;
+            bindings = <&kp C>, <&mo 3>;  /* ホールド時はLayer3有効＋Altはbehaviors側で押下 */
+            tapping-term-ms = <200>;
+        };
+
+        x_win_layer2_hold: x_win_layer2_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "X_WIN_LAYER2";
+            #binding-cells = <2>;
+            bindings = <&kp X>, <&mo 2>;  /* ホールド時はLayer2有効＋Winはbehaviors側で押下 */
+            tapping-term-ms = <200>;
+        };
+
+        b_alt_tab_layer3_hold: b_alt_tab_layer3_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "B_ALT_TAB_LAYER3";
+            #binding-cells = <2>;
+            bindings = <&kp B>, <&mo 3>;  /* ホールド時はLayer3有効＋Alt+Tabはbehaviors側で送信 */
+            tapping-term-ms = <200>;
         };
     };
 
@@ -65,7 +64,7 @@
             bindings = <
 &kp Q             &kp W         &kp E         &kp R             &kp T                                             &kp Y      &kp U    &kp I      &kp O    &kp P
 &kp A             &kp S         &kp D         &lt 6 F           &lt 5 G      &trans              &kp EXCLAMATION  &kp H      &lt 5 J  &kp K      &kp L    &lt 6 MINUS
-&mt LEFT_SHIFT Z  &lt 2 X       &lt 3 C       &kp V             &lt 3 B      &lt 4 TAB           &kp ESCAPE       &kp N      &kp M    &kp COMMA  &kp DOT  &mt RIGHT_SHIFT QUESTION
+&mt LEFT_SHIFT Z  &x_win_layer2_hold &c_alt_layer3_hold &kp V             &b_alt_tab_layer3_hold  &lt 4 TAB           &kp ESCAPE       &kp N      &kp M    &kp COMMA  &kp DOT  &mt RIGHT_SHIFT QUESTION
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANGUAGE_1  &lt 2 SPACE  &lt 3 LANGUAGE_2    &kp BACKSPACE    &kp ENTER                               &mt RCTRL DELETE
             >;
 
