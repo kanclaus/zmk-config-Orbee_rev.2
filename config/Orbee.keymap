@@ -64,7 +64,7 @@
         holdtap_alt_l3: holdtap_alt_l3 {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLDTAP_ALT_L3";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             bindings = <&macro_press_alt_l3>, <&kp>;
@@ -75,7 +75,7 @@
         holdtap_win_l2: holdtap_win_l2 {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLDTAP_WIN_L2";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             bindings = <&macro_press_win_l2>, <&kp>;
@@ -86,7 +86,7 @@
         holdtap_alt_tab_l3: holdtap_alt_tab_l3 {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLDTAP_ALT_TAB_L3";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             bindings = <&macro_press_alt_tab_l3>, <&kp>;
