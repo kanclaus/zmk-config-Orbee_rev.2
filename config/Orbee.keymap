@@ -1,4 +1,124 @@
-#include <behaviors.dtsi>
+include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+#define MOUSE 6
+
+&mt {
+    flavor = "balanced";
+    quick-tap-ms = <0>;
+};
+
+/ {
+    combos { compatible = "zmk,combos"; };
+
+    macros {
+        to_layer_0: to_layer_0 {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "TO_LAYER_0";
+        };
+    };
+
+    behaviors {
+
+        /* --- 基本設定 --- */
+        touch_behavior_1: touch1 {
+            compatible = "zmk,behavior-momentary";
+            label = "TouchKey1";
+            bindings = <&kp A>;
+        };
+
+        touch_behavior_2: touch2 {
+            compatible = "zmk,behavior-momentary";
+            label = "TouchKey2";
+            bindings = <&kp B>;
+        };
+
+        touch_behavior_3: touch3 {
+            compatible = "zmk,behavior-momentary";
+            label = "TouchKey3";
+            bindings = <&mo 1>;
+        };
+
+        lt_to_layer_0: lt_to_layer_0 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_TO_0";
+            bindings = <&mo>, <&to_layer_0>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>;
+        };
+
+        /* ===============================
+         *  長押し複合動作：C / X / B
+         * =============================== */
+
+        /* --- Cキー：Alt長押し + Layer3 --- */
+        alt_layer3: alt_layer3 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALT_LAYER3";
+            #binding-cells = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp C>, <&macro_alt_hold_l3>;
+        };
+
+        macro_alt_hold_l3: macro_alt_hold_l3 {
+            compatible = "zmk,behavior-macro";
+            label = "MACRO_ALT_HOLD_L3";
+            #binding-cells = <0>;
+            bindings = <&kp LALT &mo 3>;
+        };
+
+        /* --- Xキー：Win長押し + Layer2 --- */
+        win_layer2: win_layer2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "WIN_LAYER2";
+            #binding-cells = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp X>, <&macro_win_hold_l2>;
+        };
+
+        macro_win_hold_l2: macro_win_hold_l2 {
+            compatible = "zmk,behavior-macro";
+            label = "MACRO_WIN_HOLD_L2";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI &mo 2>;
+        };
+
+        /* --- Bキー：Alt長押し + Tab短押し + Layer3 --- */
+        alt_tab_layer3: alt_tab_layer3 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALT_TAB_LAYER3";
+            #binding-cells = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp B>, <&macro_alt_tab_l3>;
+        };
+
+        macro_alt_tab_l3: macro_alt_tab_l3 {
+            compatible = "zmk,behavior-macro";
+            label = "MACRO_ALT_TAB_L3";
+            #binding-cells = <0>;
+            bindings = <&kp LALT &kp TAB &mo 3>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -128,6 +248,74 @@
 
             sensor-bindings = <&scroll_up_down>;
         };
+
+        layer_1 {
+            bindings = <
+&kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH      &kp DOLLAR      &kp PERCENT                                   &kp AMPERSAND  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp CARET
+&trans           &trans             &trans        &trans          &trans       &trans            &kp TILDE      &kp GRAVE      &kp AT_SIGN       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON
+&kp LEFT_SHIFT   &trans             &trans        &trans          &trans       &kp TAB           &kp ESCAPE     &kp SLASH      &kp BACKSLASH     &kp LESS_THAN         &kp GREATER_THAN       &kp SEMICOLON
+&kp LCTRL        &kp LEFT_WIN       &kp LEFT_ALT  &kp LANGUAGE_2  &kp SPACE    &kp LANGUAGE_1    &kp BACKSPACE  &kp ENTER                                                                     &mt RCTRL DELETE
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        layer_2 {
+            bindings = <
+&kp F1              &kp F2    &kp F3    &kp F4          &kp F5                                    &kp ASTERISK  &kp N7  &kp N8  &kp N9  &kp PLUS
+&kp F6              &kp F7    &kp F8    &kp F9          &kp F10     &trans            &trans      &kp FSLH      &kp N4  &kp N5  &kp N6  &kp MINUS
+&mt LEFT_SHIFT F11  &kp F12   &trans    &trans          &kp LA(F4)  &kp TAB           &kp ESCAPE  &kp DOT       &kp N1  &kp N2  &kp N3  &mt RIGHT_SHIFT N0
+&kp LCTRL           &kp LGUI  &kp LALT  &kp LANGUAGE_1  &kp SPACE   &kp LANGUAGE_2    &kp BSPC    &kp ENTER                             &mt RCTRL EQUAL
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        layer_3 {
+            bindings = <
+&trans          &trans    &trans    &trans          &trans                                 &trans     &kp HOME     &kp UP     &kp END        &trans
+&trans          &trans    &trans    &trans          &trans     &trans            &trans    &trans     &kp LEFT     &kp DOWN   &kp RIGHT      &trans
+&kp LEFT_SHIFT  &trans    &trans    &trans          &trans     &kp TAB           &kp ESC   &trans     &kp PAGE_UP  &kp PSCRN  &kp PAGE_DOWN  &kp RIGHT_SHIFT
+&kp LCTRL       &kp LGUI  &kp LALT  &kp LANGUAGE_1  &kp SPACE  &kp LANGUAGE_2    &kp BSPC  &kp ENTER                                         &mt RCTRL DELETE
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &trans        &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &trans        &trans        &bt BT_CLR
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                                  &bt BT_CLR_ALL
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        layer_5 {
+            bindings = <
+&trans  &kp LG(LS(LEFT))  &kp LG(UP)    &kp LG(LS(RIGHT))  &trans                    &trans  &kp LG(LC(LEFT))  &kp LG(TAB)  &kp LG(LC(RIGHT))  &trans
+&trans  &kp LG(LEFT)      &kp LG(DOWN)  &kp LG(RIGHT)      &trans  &trans    &trans  &trans  &kp LC(LS(TAB))   &kp LA(TAB)  &kp LC(TAB)        &trans
+&trans  &trans            &trans        &trans             &trans  &trans    &trans  &trans  &kp LC(PG_UP)     &kp LG(D)    &kp LC(PG_DN)      &trans
+&trans  &trans            &trans        &trans             &trans  &trans    &trans  &trans                                                    &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
+        };
+
+        MOUSE {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB4  &trans    &mkp MB5  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP>;
+        };
+    };
+};
 
         layer_1 {
             bindings = <
