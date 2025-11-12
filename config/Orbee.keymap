@@ -24,6 +24,8 @@
     };
 
     behaviors {
+
+        /* --- 基本設定 --- */
         touch_behavior_1: touch1 {
             compatible = "zmk,behavior-momentary";
             label = "TouchKey1";
@@ -46,7 +48,6 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
-
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
@@ -55,68 +56,62 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-
             tap-ms = <20>;
         };
 
-        // --- Cキー用：Alt長押し + Layer3 ---
+        /* ===============================
+         *  長押し複合動作：C / X / B
+         * =============================== */
 
-        holdtap_alt_l3: holdtap_alt_l3 {
+        /* --- Cキー：Alt長押し + Layer3 --- */
+        alt_layer3: alt_layer3 {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLDTAP_ALT_L3";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&macro_press_alt_l3>, <&kp>;
-        };
-
-        // --- Xキー用：Win長押し + Layer2 ---
-
-        holdtap_win_l2: holdtap_win_l2 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLDTAP_WIN_L2";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&macro_press_win_l2>, <&kp>;
-        };
-
-        // --- Bキー用：Alt長押し + Tab短押し + Layer3 ---
-
-        holdtap_alt_tab_l3: holdtap_alt_tab_l3 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLDTAP_ALT_TAB_L3";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&macro_press_alt_tab_l3>, <&kp>;
-        };
-
-        // --- Alt + Layer3 有効化 ---
-
-        macro_press_alt_l3: macro_press_alt_l3 {
-            compatible = "zmk,behavior-macro";
-            label = "MACRO_ALT_L3";
+            label = "ALT_LAYER3";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &mo 3>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp C>, <&macro_alt_hold_l3>;
         };
 
-        // --- Win + Layer2 有効化 ---
-
-        macro_press_win_l2: macro_press_win_l2 {
+        macro_alt_hold_l3: macro_alt_hold_l3 {
             compatible = "zmk,behavior-macro";
-            label = "MACRO_WIN_L2";
+            label = "MACRO_ALT_HOLD_L3";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI &mo 2>;
+            bindings = <&kp LALT &mo 3>;
         };
 
-        // --- Alt + Tab + Layer3 有効化 ---
+        /* --- Xキー：Win長押し + Layer2 --- */
+        win_layer2: win_layer2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "WIN_LAYER2";
+            #binding-cells = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp X>, <&macro_win_hold_l2>;
+        };
 
-        macro_press_alt_tab_l3: macro_press_alt_tab_l3 {
+        macro_win_hold_l2: macro_win_hold_l2 {
+            compatible = "zmk,behavior-macro";
+            label = "MACRO_WIN_HOLD_L2";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI &mo 2>;
+        };
+
+        /* --- Bキー：Alt長押し + Tab短押し + Layer3 --- */
+        alt_tab_layer3: alt_tab_layer3 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALT_TAB_LAYER3";
+            #binding-cells = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp B>, <&macro_alt_tab_l3>;
+        };
+
+        macro_alt_tab_l3: macro_alt_tab_l3 {
             compatible = "zmk,behavior-macro";
             label = "MACRO_ALT_TAB_L3";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp TAB &mo 3>;
+            bindings = <&kp LALT &kp TAB &mo 3>;
         };
     };
 
@@ -126,8 +121,8 @@
         default_layer {
             bindings = <
 &kp Q             &kp W                &kp E                &kp R             &kp T                                                         &kp Y      &kp U    &kp I      &kp O    &kp P
-&kp A             &kp S                &kp D                &lt 6 F           &lt 5 G                  &trans              &kp EXCLAMATION  &kp H      &lt 5 J  &kp K      &kp L    &lt 6 MINUS
-&mt LEFT_SHIFT Z  &holdtap_win_l2 X X  &holdtap_alt_l3 C C  &kp V             &holdtap_alt_tab_l3 B B  &lt 4 TAB           &kp ESCAPE       &kp N      &kp M    &kp COMMA  &kp DOT  &mt RIGHT_SHIFT QUESTION
+&kp A             &kp S                &kp D                &lt 6 F           &lt 5 G                  &trans              &kp EXCLAMATION  &kp H      &lt 5 J  &kp K      &lt 6 MINUS
+&mt LEFT_SHIFT Z  &win_layer2          &alt_layer3          &kp V             &alt_tab_layer3        &lt 4 TAB           &kp ESCAPE       &kp N      &kp M    &kp COMMA  &kp DOT  &mt RIGHT_SHIFT QUESTION
 &kp LCTRL         &kp LEFT_WIN         &kp LEFT_ALT         &lt 1 LANGUAGE_1  &lt 2 SPACE              &lt 3 LANGUAGE_2    &kp BACKSPACE    &kp ENTER                               &mt RCTRL DELETE
             >;
 
